@@ -1,9 +1,6 @@
 <p align="center">
   <strong>基于kettle的可视化数据集成平台</strong>
-</p>
-
-<p align="center">
-  <a href="https://github.com/young-datafan/data-integration/blob/develop/README.md">English</a> | 简体中文
+  <strong>另外公司有整套数据中台出售，包含数据源，元数据，数据标准，数据质量，数据服务，数据安全，数据血缘等模块，基于doris数仓。需要加V:abcd19920605</strong>
 </p>
 
 <p align="center">
@@ -133,14 +130,13 @@ npm run dev
 
 --------------------------------------------------------------------------------
 
-# 获得帮助
-
-1. 提交[issue](https://github.com/young-datafan/data-integration/issues)
-
---------------------------------------------------------------------------------
 
 ## 版权
 
-请参考 [LICENSE](https://github.com/young-datafan/data-integration/blob/develop/LICENSE) 文件.
+请参考 [LICENSE](https://gitee.com/fhs-opensource/data-center/blob/master/LICENSE) 文件.
 
 --------------------------------------------------------------------------------
+
+## 原项目链接
+
+https://github.com/young-datafan-ooooo1/data-integration
