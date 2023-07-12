@@ -1,5 +1,5 @@
 <p align="center">
-  <strong>基于kettle的可视化数据集成平台</strong>
+  <strong>基于kettle的可视化数据集成平台</strong><BR/>
   <strong>    另外公司有整套数据中台出售，包含数据源，元数据，数据标准，数据质量，数据服务，数据安全，数据血缘等模块，基于doris数仓。需要加V:abcd19920605</strong>
 </p>
 
