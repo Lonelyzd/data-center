@@ -38,7 +38,7 @@ kettle调度，kettle 任务/转换 在线设计 ，datax任务在线构建 调�
 数据集，报表管理，报表设计，报表查看
 ## 技术栈
 后端：Java springboot2.7 springcloud/alibaba  mybatis plus hutool 等常见技术    
-前段：vue  elementui  vite 等常见技术    
+前端：vue  elementui  vite 等常见技术    
 中间件：doris，mysq，redis，rabbitmq，minio，zookeeper。        
 ### 有演示环境和方案PPT，需要加V:abcd19920605
 
