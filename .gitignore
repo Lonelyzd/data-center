@@ -35,6 +35,7 @@ yarn.lock
 package-lock.json
 config.gypi
 test/coverage
-dataintegration-ui/dist
-dataintegration-ui/node
+dc-kettle-ui/dist
+dc-kettle-ui/node
 *.iml
+/tmp

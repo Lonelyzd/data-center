@@ -3,15 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.young-datafan</groupId>
-    <artifactId>dataintegration</artifactId>
+    <groupId>com.xhb</groupId>
+    <artifactId>kettle-vue</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
 
-    <scm>
-        <developerConnection>scm:git:https://github.com/young-datafan/data-integration</developerConnection>
-        <tag>HEAD</tag>
-    </scm>
+
 
     <properties>
         <revision>1.0.0-SNAPSHOT</revision>
@@ -151,16 +148,7 @@
         </dependencies>
     </dependencyManagement>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/releases/</url>
-        </repository>
-    </distributionManagement>
+
 
     <!-- kettle中央仓库 -->
     <repositories>
@@ -240,16 +228,11 @@
     </build>
 
     <modules>
-        <module>dataintegration-common</module>
-        <module>dataintegration-group</module>
-        <module>dataintegration-project</module>
-        <module>dataintegration-sso</module>
-        <module>dataintegration-sys</module>
-        <module>dataintegration-model</module>
-        <module>dataintegration-run</module>
-        <module>dataintegration-gateway</module>
-        <module>dataintegration-file-management</module>
-
+        <module>dc-kettle-common</module>
+        <module>dc-kettle-sys</module>
+        <module>dc-kettle-model</module>
+        <module>dc-kettle-run</module>
+        <module>dc-kettle-gateway</module>
     </modules>
 
 </project>

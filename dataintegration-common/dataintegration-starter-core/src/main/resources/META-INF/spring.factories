@@ -1,1 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.youngdatafan.dataintegration.core.config.CoreAutoConfiguration
