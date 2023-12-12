@@ -54,16 +54,12 @@ kettle调度，kettle 任务/转换 在线设计 ，datax任务在线构建 调�
 
 # 模块
 
-* dataintegration-common : 公共模块
-* dataintegration-group : 分组管理
-* dataintegration-gateway : 服务网关
-* dataintegration-project : 脚本管理
-* dataintegration-run : 数据集成运行模块
-* dataintegration-sso : sso单点登录模块
-* dataintegration-sys : 系统管理模块
-* dataintegration-model : 模型管理
-* dataintegration-file-management : 文件管理
-* dataintegration-ui : 前端vue模块
+* dc-kettle-common : 公共模块
+* dc-kettle-gateway : 服务网关
+* dc-kettle-run : 数据集成运行模块
+* dc-kettle-sys : 系统管理模块
+* dc-kettle-model : 模型管理
+* dc-kettle-ui : 前端vue模块
 
 --------------------------------------------------------------------------------
 
@@ -123,27 +119,13 @@ mvn -B clean compile install -Prelease -Dmaven.test.skip=true -Dcheckstyle.skip=
 > 使用数据库连接工具连接数据库，创建数据库dataintegration，将项目/install/sql/dataintegration.sql导入数据库中，初始化数据库文件。
 ### 服务启动
 #### 修改配置
-* dataintegration-gateway : 服务网关
-* dataintegration-group : 分组管理
-* dataintegration-project : 脚本管理
-* dataintegration-run : 数据集成运行模块
-* dataintegration-sso : sso单点登录模块
-* dataintegration-sys : 系统管理模块
-* dataintegration-model : 模型管理
-* dataintegration-file-management : 文件管理
-
-``` bash
- 依次修改 application-local.yaml
- spring.cloud.consul.host: 127.0.0.1 ,ip改为启动的consul IP
- spring.cloud.consul.port: 8500 ,ip改为启动的consul 端口
- spring.datasource.url: jdbc:mysql://192.168.10.211:13306/ 修改启动的mysql url
- spring.datasource.username:  修改启动的mysql的账号
- spring.datasource.password:  修改启动的mysql的密码
- 使用idea或者其他工具运行服务 dataintegration-**-provider
-```
+1、准备好redis,nacos,minio，redis
+2、修改dc-kettle-model-provider、dc-kettle-gateway、dc-kettle-run-provider、dc-kettle-sys-provider 的yaml文件
+3、启动上面3个微服务和网关
+4、如果某一些依赖下载不了(日立的maven仓库很慢很慢)，可以+v找我要。
 
 #### 启动前端ui
-> 终端进入 dataintegration-ui 目录
+> 终端进入 dc-kettle-ui 目录
 
 ``` bash
 # install dependencies
