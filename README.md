@@ -109,20 +109,16 @@ TODO
 ```bash
 mvn -B clean compile install -Prelease -Dmaven.test.skip=true -Dcheckstyle.skip=true
 ```
-## 启动前置环境
-* <a  href ="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Jdk1.8</a>
-* <a  href ="https://www.mysql.com/">Mysql 5.7.+</a>
-* <a  href ="https://docs.consulproject.org/docs/english-documentation/introduction/local_installation">consul</a>
-* <a  href ="https://redis.io/">Redis</a>
+准备好redis,nacos,minio，redis     
 
 ### 创建数据库
 > 使用数据库连接工具连接数据库，创建数据库dataintegration，将项目/install/sql/dataintegration.sql导入数据库中，初始化数据库文件。
 ### 服务启动
 #### 修改配置
-1、准备好redis,nacos,minio，redis
-2、修改dc-kettle-model-provider、dc-kettle-gateway、dc-kettle-run-provider、dc-kettle-sys-provider 的yaml文件
-3、启动上面3个微服务和网关
-4、如果某一些依赖下载不了(日立的maven仓库很慢很慢)，可以+v找我要。
+
+1、修改dc-kettle-model-provider、dc-kettle-gateway、dc-kettle-run-provider、dc-kettle-sys-provider 的yaml文件    
+2、启动上面3个微服务和网关      
+3、如果某一些依赖下载不了(日立的maven仓库很慢很慢)，可以+v找我要。    
 
 #### 启动前端ui
 > 终端进入 dc-kettle-ui 目录
