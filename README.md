@@ -19,11 +19,11 @@
 ## 功能模块
 ###  1、数据源管理    
 ###  2、元数据管理
-支持自动采集、手动维护、元模型，最新元数据，定版元数据 对标一线大厂产品功能   
+元模型、最新元数据 
 ###  3、数据标准管理
-标准词根、标准字典、数据元、标准模型、业务术语、发布、多版本维护、数据标准核对    
+标准词根、标准字典、数据元、标准模型、发布、多版本维护、数据标准核对    
 ###  4、数据仓库管理
-支持主题域、主题、数仓集群、维度建模、模型运维、模型审计、模型数据查看、数仓备份和恢复、数据生命周期管理、指标在线开发查看
+支持主题域、主题、数仓集群、维度建模、模型运维、模型审计、模型数据查看、数仓备份和恢复
 ###  5、数据质量
 规则定义，任务执行，结果查看，统计分析，质量问题修复日志    
 ###  6、数据血缘
@@ -32,18 +32,19 @@
 标签对象、标签管理、置标任务、标签圈群、标签画像
 ###  8、数据服务
 接口在线开发(支持通过JS脚本对数据进行处理后返回，支持动态SQL)，接口测试，接口发布，应用管理，应用授权    
-##  9、数据资产
-资产编目，资产授权，资产查看，资产申请    
-###  10、数据集成和数据开发
-kettle调度，kettle 任务/转换 在线设计。支持jdbc mqtt ftp  excel csv json xml mongodb  http/rest api 等数据源接入。
+##  9、资产目录 
+目录编目，资产项授权，资产项查看，资产项申请    
+###  10、数据集成
+kettle调度，kettle 任务/转换 在线设计 ，datax任务在线构建 调度执行  drois多数据目录维护，简易ETL、FLINK 
 ###  11、数据可视化
-数据集，报表管理，报表设计，报表查看。支持大屏 各类Echarts组件。
+数据集，报表管理，报表设计，报表查看
 ## 技术栈
 后端：Java springboot2.7 springcloud/alibaba  mybatis plus hutool 等常见技术    
 前端：vue  elementui  vite 等常见技术    
 中间件：doris，mysql，redis，rabbitmq，minio，zookeeper。        
 ### 有演示环境和方案PPT，需要加V:abcd19920605
-
+## 架构
+![](./docs/img/jiagou.png)
 # 本项目介绍正文开始
 
 # 架构
@@ -54,12 +55,16 @@ kettle调度，kettle 任务/转换 在线设计。支持jdbc mqtt ftp  excel cs
 
 # 模块
 
-* dc-kettle-common : 公共模块
-* dc-kettle-gateway : 服务网关
-* dc-kettle-run : 数据集成运行模块
-* dc-kettle-sys : 系统管理模块
-* dc-kettle-model : 模型管理
-* dc-kettle-ui : 前端vue模块
+* dataintegration-common : 公共模块
+* dataintegration-group : 分组管理
+* dataintegration-gateway : 服务网关
+* dataintegration-project : 脚本管理
+* dataintegration-run : 数据集成运行模块
+* dataintegration-sso : sso单点登录模块
+* dataintegration-sys : 系统管理模块
+* dataintegration-model : 模型管理
+* dataintegration-file-management : 文件管理
+* dataintegration-ui : 前端vue模块
 
 --------------------------------------------------------------------------------
 
@@ -109,19 +114,37 @@ TODO
 ```bash
 mvn -B clean compile install -Prelease -Dmaven.test.skip=true -Dcheckstyle.skip=true
 ```
-准备好redis,nacos,minio，redis     
+## 启动前置环境
+* <a  href ="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Jdk1.8</a>
+* <a  href ="https://www.mysql.com/">Mysql 5.7.+</a>
+* <a  href ="https://docs.consulproject.org/docs/english-documentation/introduction/local_installation">consul</a>
+* <a  href ="https://redis.io/">Redis</a>
 
 ### 创建数据库
 > 使用数据库连接工具连接数据库，创建数据库dataintegration，将项目/install/sql/dataintegration.sql导入数据库中，初始化数据库文件。
 ### 服务启动
 #### 修改配置
+* dataintegration-gateway : 服务网关
+* dataintegration-group : 分组管理
+* dataintegration-project : 脚本管理
+* dataintegration-run : 数据集成运行模块
+* dataintegration-sso : sso单点登录模块
+* dataintegration-sys : 系统管理模块
+* dataintegration-model : 模型管理
+* dataintegration-file-management : 文件管理
 
-1、修改dc-kettle-model-provider、dc-kettle-gateway、dc-kettle-run-provider、dc-kettle-sys-provider 的yaml文件    
-2、启动上面3个微服务和网关      
-3、如果某一些依赖下载不了(日立的maven仓库很慢很慢)，可以+v找我要。    
+``` bash
+ 依次修改 application-local.yaml
+ spring.cloud.consul.host: 127.0.0.1 ,ip改为启动的consul IP
+ spring.cloud.consul.port: 8500 ,ip改为启动的consul 端口
+ spring.datasource.url: jdbc:mysql://192.168.10.211:13306/ 修改启动的mysql url
+ spring.datasource.username:  修改启动的mysql的账号
+ spring.datasource.password:  修改启动的mysql的密码
+ 使用idea或者其他工具运行服务 dataintegration-**-provider
+```
 
 #### 启动前端ui
-> 终端进入 dc-kettle-ui 目录
+> 终端进入 dataintegration-ui 目录
 
 ``` bash
 # install dependencies
@@ -131,7 +154,7 @@ npm install
 npm run dev
 
 ```
-> 访问前端页面：http://127.0.0.1:8081/dataintegration-ui/#/  默认的用户是admin，默认的密码是Prime@2020 或者123456
+> 访问前端页面：http://127.0.0.1:8081/dataintegration-ui/#/  默认的用户是admin，默认的密码是Prime@2020
 
 ###
 
