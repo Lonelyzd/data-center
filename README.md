@@ -46,7 +46,7 @@ kettle调度，kettle 任务/转换 在线设计 ，datax任务在线构建 调�
 ## 架构
 ![](./docs/img/jiagou.png)
 # 本项目介绍正文开始
-
+注意，只有商业版才有完整的中台功能
 # 架构
 
 ![](./docs/img/di-framework.png)
