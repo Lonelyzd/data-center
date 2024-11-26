@@ -154,7 +154,7 @@ npm install
 npm run dev
 
 ```
-> 访问前端页面：http://127.0.0.1:8081/dataintegration-ui/#/  默认的用户是admin，默认的密码是Prime@2020
+> 访问前端页面：http://127.0.0.1:8081/dataintegration-ui/#/  默认的用户是admin，默认的密码是123456
 
 ###
 
