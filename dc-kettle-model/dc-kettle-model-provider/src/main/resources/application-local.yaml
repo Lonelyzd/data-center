@@ -10,15 +10,17 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.0.3:8848
-        namespace: 0966af52-a286-46a5-a5cc-0413683e7893
+        server-addr: 192.168.163.131:8848
+        namespace: data-center
+        username: nacos
+        password: nacos
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.0.3:3306/dataintegration?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://192.168.163.131:13306/dataintegration?useUnicode=true&characterEncoding=utf-8&useSSL=false
     #    url: jdbc:mysql://localhost:3306/dp_dev?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
-    password: 123456
+    password: root
     hikari:
       minimum-idle: 1
       maximum-pool-size: 10
@@ -27,9 +29,9 @@ spring:
       connection-timeout: 30000
       connection-test-query: SELECT 1
   redis:
-    host: 192.168.0.3
+    host: 192.168.163.131
     port: 6379
-    password: 123456
+    password:
     lettuce:
       shutdown-timeout: 100 # 关闭超时时间
       pool:
@@ -98,10 +100,10 @@ file:
     useServer: minio
     extendsFileType: minio
     minIos3:
-      server: 192.168.0.3
+      server: 192.168.163.131
       port: 9000
-      url: http://192.168.0.3:9000
-      accessKey: BOT1B02JT5TVX3AS8QKB
-      secretKey: aOuyKjdrS6DVlhgvFpk6gi7UC6fKZI8GCsA2SHo6
+      url: http://192.168.163.131:9000
+      accessKey: f0HP5ZO58uAKLP8VoNZm
+      secretKey: xGHRZxdE4l2fHC8wSjgKO3kSpihiOYx2C7311kVZ
       bucketName: wishdata
       rootPath: s3://

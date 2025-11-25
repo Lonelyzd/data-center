@@ -7,13 +7,14 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.0.3:8848
-        namespace: 0966af52-a286-46a5-a5cc-0413683e7893
-
+        server-addr: 192.168.163.131:8848
+        namespace: data-center
+        username: nacos
+        password: nacos
   redis:
-    host: 192.168.0.213
+    host: 192.168.163.131
     port: 6379
-    password: 123456
+    password:
     lettuce:
       shutdown-timeout: 100 # 关闭超时时间
       pool:
